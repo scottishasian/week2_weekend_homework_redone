@@ -44,7 +44,7 @@ class TestRoom < MiniTest::Test
 
   def test_find_guest_by_name
     @room.guest_check_in(@guest2)
-    assert_equal(@guest2.name, @room.find_guest_by_name(@guest2))
+    assert_equal(@guest2, @room.find_guest_by_name(@guest2))
   end
 
   def test_guest_check_out
@@ -87,6 +87,13 @@ class TestRoom < MiniTest::Test
     @room.guest_check_in(@guest2)
     assert_equal(2, @room.guest_count)
     assert_equal("Room is full", @room.guest_check_in(@guest3))
+  end
+
+  def test_charge_guest_for_room
+    @room.guest_check_in(@guest1)
+    @room.charge_guest_for_room(@guest1, @room.cost)
+    result = @guest1.money
+    assert_equal(600, result)
   end
 
 

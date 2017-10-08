@@ -38,7 +38,7 @@ class Room
   def find_guest_by_name(guest_name)
     @guests.find{|name|
       if name.name == guest_name.name
-        return name.name
+        return name
       else
         return "Not found"
       end}
@@ -46,7 +46,7 @@ class Room
 
   def guest_check_out(guest_name)
     result = find_guest_by_name(guest_name)
-    if guest_name.name == result
+    if guest_name == result
       @guests.delete(guest_name)
     end
   end
@@ -76,6 +76,14 @@ class Room
       return "Empty"
     end
   end
+
+  def charge_guest_for_room(guest_name, fee)
+    result = find_guest_by_name(guest_name)
+    if result == guest_name
+      guest_name.money -= fee
+    end
+  end
+
 
   # def add_room_details(name, cost, capacity)
   #   @name[:name]
