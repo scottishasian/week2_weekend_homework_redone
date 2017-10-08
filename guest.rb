@@ -5,6 +5,7 @@ class Guests
   def initialize(database = {})
     details = guest_info.merge(database)
     #.merge merges hashes together into one lot.
+    # allows class info to be called externally.
 
     @name = details.fetch(:name)
     @money = details.fetch(:money)
