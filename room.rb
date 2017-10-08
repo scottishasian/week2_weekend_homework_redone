@@ -24,7 +24,11 @@ class Room
   end
 
   def guest_check_in(guest_details)
-    @guests << guest_details
+      @guests << guest_details
+      if @guests.count > @capacity
+        @guests.pop()
+        return "Room is full"
+      end
   end
 
   def room_status
