@@ -80,7 +80,11 @@ class Room
   def charge_guest_for_room(guest_name, fee)
     result = find_guest_by_name(guest_name)
     if result == guest_name
-      guest_name.money -= fee
+      if guest_name.money >= fee
+        return guest_name.money -= fee
+      else
+        return "Not enough money."
+      end
     end
   end
 

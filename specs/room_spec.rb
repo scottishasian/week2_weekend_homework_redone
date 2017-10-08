@@ -9,7 +9,7 @@ class TestRoom < MiniTest::Test
   def setup
     @room = Room.new(name:"Singing Room", cost: 400, capacity: 2)
     @guest1 = Guests.new(name:"Morag", money: 1000)
-    @guest2 = Guests.new(name:"Adam", money: 900)
+    @guest2 = Guests.new(name:"Adam", money: 200)
     @guest3= Guests.new(name:"Shonna", money: 500)
     @song1 = Songs.new(name:"Song 2", artist: "Blur")
   end
@@ -94,6 +94,12 @@ class TestRoom < MiniTest::Test
     @room.charge_guest_for_room(@guest1, @room.cost)
     result = @guest1.money
     assert_equal(600, result)
+  end
+
+  def test_guest_doesnt_have_enough_money
+    @room.guest_check_in(@guest2)
+    result = @room.charge_guest_for_room(@guest2, @room.cost)
+    assert_equal("Not enough money.", result)
   end
 
 
