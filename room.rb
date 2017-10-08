@@ -88,4 +88,12 @@ class Room
     end
   end
 
+  def favourite_song(guest_name, song_name)
+    if guest_name.favourite_song == @playlist
+      return "Yay"
+    end
+  end
+
+  #Need to access hash in playlist array.
+
 end
