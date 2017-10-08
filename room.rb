@@ -88,9 +88,4 @@ class Room
     end
   end
 
-
-  # def add_room_details(name, cost, capacity)
-  #   @name[:name]
-  # end
-
 end

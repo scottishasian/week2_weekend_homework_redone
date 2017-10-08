@@ -102,13 +102,4 @@ class TestRoom < MiniTest::Test
     assert_equal("Not enough money.", result)
   end
 
-
-
-  # def test_add_room
-  #   result = @room.add_room_details(@room.name, @room.cost, @room.capacity)
-  #   assert_equal(@room, result)
-  # end
-
-
-
 end
