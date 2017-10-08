@@ -26,8 +26,17 @@ class Room
     @guests << guest_details
   end
 
-  def guest_status
+  def room_status
     return @guests
+  end
+
+  def find_guest_by_name(guest_name)
+    @guests.find{|name|
+      if name.name == guest_name
+        return name.name
+      else
+        return "Not found"
+      end}
   end
 
   # def add_room_details(name, cost, capacity)
