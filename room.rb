@@ -1,6 +1,6 @@
 class Room
 
-  attr_accessor :name, :cost, :capacity, :guests
+  attr_accessor :name, :cost, :capacity, :guests, :playlist
 
   def initialize(room_database = {})
     details = room_info.merge(room_database)
@@ -9,6 +9,7 @@ class Room
     @cost = details.fetch(:cost)
     @capacity = details.fetch(:capacity)
     @guests = []
+    @playlist = []
 
   end
 
@@ -44,6 +45,22 @@ class Room
     if guest_name.name == result
       @guests.delete(guest_name)
     end
+  end
+
+  def song_count
+    return @playlist.count
+  end
+
+  def show_songs
+    if @playlist.count == 0
+      return "Zero songs"
+    else
+      return "Here are your songs: #{@playlist}"
+    end
+  end
+
+  def add_song(song_details)
+    @playlist << song_details
   end
 
   # def add_room_details(name, cost, capacity)
