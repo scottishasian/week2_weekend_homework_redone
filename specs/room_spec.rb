@@ -66,6 +66,21 @@ class TestRoom < MiniTest::Test
     assert_equal("Here are your songs: #{@room.playlist}", @room.show_songs)
   end
 
+  def test_room_capacity_empty
+    assert_equal("Empty", @room.room_capacity(@room))
+  end
+
+  def test_room_capacity_one_guest
+    @room.guest_check_in(@guest1)
+    assert_equal("The room has #{@room.capacity} spaces. It is not full.", @room.room_capacity(@room))
+  end
+
+  def test_room_capacity_one_guest
+    @room.guest_check_in(@guest1)
+    @room.guest_check_in(@guest2)
+    assert_equal("The room has #{@room.capacity} spaces. It is now full.", @room.room_capacity(@room))
+  end
+
 
 
   # def test_add_room

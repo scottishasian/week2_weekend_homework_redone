@@ -63,6 +63,16 @@ class Room
     @playlist << song_details
   end
 
+  def room_capacity(room_details)
+    if @guests.count == @capacity
+      return "The room has #{@capacity} spaces. It is now full."
+    elsif @guests.count < @capacity && @guests.count > 0
+      return "The room has #{@capacity} spaces. It is not full."
+    else
+      return "Empty"
+    end
+  end
+
   # def add_room_details(name, cost, capacity)
   #   @name[:name]
   # end
