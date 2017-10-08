@@ -23,6 +23,9 @@ class Command
     return show_rooms
   end
 
+  def create_room
+  end
+
 end
 
 # Creates new room, guest and song hashes to be added.

@@ -23,5 +23,8 @@ class TestCommand < MiniTest::Test
     assert_equal(rooms, @command.show_rooms)
   end
 
+  def test_create_room
+  end
+
 
 end

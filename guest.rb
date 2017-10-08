@@ -1,6 +1,6 @@
 class Guests
 
-  attr_accessor :name, :money
+  attr_accessor :name, :money, :favourite
 
   def initialize(database = {})
     details = guest_info.merge(database)
@@ -9,6 +9,7 @@ class Guests
 
     @name = details.fetch(:name)
     @money = details.fetch(:money)
+    @favourite = details.fetch(:favourite)
 
     #.fetch returns a value from the hash for a
     # given key.
@@ -16,7 +17,8 @@ class Guests
 
   def guest_info
     {name: "none",
-    money: 0}
+    money: 0,
+    favourite: "none"}
   end
 end
 
