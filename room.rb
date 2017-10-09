@@ -98,12 +98,11 @@ class Room
     return result
   end
 
-  # def favourite_song(guest_name, song_name)
-  #   if guest_name.favourite_song == @playlist
-  #     return "Yay"
-  #   end
-  # end
+  def favourite_song(guest_song)
+    result = @playlist.find{|song| song.name == guest_song}
+    return result
+  end
 
-  #Need to access hash in playlist array. maybe .find?
+  #Not working, returns nil
 
 end
