@@ -90,7 +90,12 @@ class Room
 
   def find_song(song_name)
     result = @playlist.find{|name| name.name == song_name}
-    return result.name
+    return result
+  end
+
+  def find_song_by_artist(artist_name)
+    result = @playlist.find{|artist| artist.artist == artist_name}
+    return result
   end
 
   # def favourite_song(guest_name, song_name)

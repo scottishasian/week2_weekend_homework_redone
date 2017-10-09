@@ -105,7 +105,13 @@ class TestRoom < MiniTest::Test
   def test_find_song_by_name
     @room.add_song(@song1)
     result = @room.find_song(@song1.name)
-    assert_equal("Song 2", result)
+    assert_equal(@song1, result)
+  end
+
+  def test_find_song_by_artist
+    @room.add_song(@song1)
+    result = @room.find_song_by_artist(@song1.artist)
+    assert_equal(@song1, result)
   end
 
 
